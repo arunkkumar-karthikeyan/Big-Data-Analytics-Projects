@@ -1,0 +1,4 @@
+Plane_types,Total_flights,Delayed_flights,Perc_delayed_flights
+Medium-Haul Flights,25674,14153,0.55
+Long-Haul Flights,47039,25139,0.53
+Short-Haul Flights,264063,129841,0.49
