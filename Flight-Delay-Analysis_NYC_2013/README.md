@@ -4,3 +4,5 @@ Based on several US Airlines datasets, the main objective of this project was to
 
 Tableau Story Link:
 https://public.tableau.com/authoring/GroupAssignment-FlightDelayAnalysis/NewYorkFlightDelayAnalysis#1
+
+![image](https://user-images.githubusercontent.com/115185834/209802850-91067d99-3ba3-405e-8d49-be1c23aa62a8.png)
