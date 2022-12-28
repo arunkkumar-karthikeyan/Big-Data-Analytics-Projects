@@ -1,0 +1,433 @@
+---
+title: "**MARKETING DATAMART ANALYSIS**"
+author: "**TEAM 02**: Nandini Gantayat, Shashank Gollapalli, Arunkkumar Karthikeyan"
+output: 
+  pdf_document : default
+  html_document : default
+---
+
+```{r echo=FALSE, fig.align = "center"}
+knitr::include_graphics("bwin-casino-bonuses-logo.png")
+```
+
+
+```{r datainclude = FALSE, echo = FALSE,warning = FALSE,message = FALSE, results='hide'}
+if(!require("tidyr")) install.packages("tidyr"); library("tidyr")
+if(!require("ggplot2")) install.packages("ggplot2"); library("ggplot2")
+if(!require("dplyr")) install.packages("dplyr"); library("dplyr")
+if(!require("stringr")) install.packages("stringr"); library("stringr")
+if(!require("maps")) install.packages("maps"); library("maps")
+library(readr)
+library(readxl)
+library(dplyr)
+library(ggplot2)
+library(latexpdf)
+library(tinytex)
+Variable_descriptions<-read_excel("Descriptions_Final.xlsx")
+```
+
+```{r datainclude = FALSE , echo= FALSE}
+datamart <- read.csv("Datamart_Team2.csv", header = TRUE, sep = ",")
+```
+
+
+
+This marketing report and manual was done using RMarkDown. 
+
+\pagebreak
+
+## Contents
+
+1. Problem Statement
+2. Raw Data
+3. Data Pre-Processing 
+4. Marketing Metrics
+5. Summary Statistics & Insights using Shiny
+6. Variable Description
+
+*** 
+### 1. Problem Statement:
+
+The Marketing datamart is created using the raw data belonging to *Bwin Interactive Entertainment*, *AG (bwin)* which is an Internet betting service provider headquartered in Vienna, Austria. 
+
+BWin Interactive Entertainment is an online gambling company which offers different kinds of products and services like: Sports betting, Poker games, Casino games, among others.
+
+Our goal is to derive marketing insights from the available customer data and visualizing these insights using *Shiny* Application. This Marketing datamart defines variables and the **key Marketing metrics** per user.  
+
+***
+### 2. Raw Data:
+
+In this report, we will describe the rwa data belonging to the first prospective longitudinal, real-time, Internet sports betting behavior study that took place from February 1, 2005 through September 30, 2005.
+
+* **Demographics dataset** - Includes the ***demographic*** information of the different users using several variables.
+
+
+
+* **UserDailyAggregation dataset** - Shows ***UserDailyAggregation*** and contains the actual betting information associated with each product for each participant per day.
+
+
+
+* **PokerChipConversions dataset** - Contains information on the ***pokerchip*** and summaries of poker play in terms of poker chip transactions to and from the poker site for each poker session. 
+
+
+***
+### 3. Data Pre-Processing:
+
+The following packages have primarily been used in this project:
+
+* **dplyr** - This package is mainly used for data manipulation techniques. The functions used from this packages are filter, select, mutate and summarise. 
+
+* **lubridate** - This package is mainly used for treating date-time data.
+
+* **ggplot2** - This package is mainly used for declaratively creating graphics and visualizations. 
+
+* **haven** - This package is used for reading data with SAS extension (SAS files).
+
+* **tidyverse** - This package is used for cleaning and transforming data.
+
+* **readxl** - This package is used for reading excel data into R. 
+
+* **gridExtra** - This package provides a number of user-level functions to work with "grid" graphics, notably to arrange multiple grid-based plots on a page, and draw tables.
+
+* **shiny Dashboard** - This package is used to publish a group of related data visualizations as a dashboard
+
+* **DT** - This package supports server-side processing and client-side support to render tables
+
+* **Plotly** - This package is used for creating interactive web-based graphs via the open source JavaScript graphing library plotly.js
+
+* **shiny** - This package makes it easy to build interactive web apps using R code. 
+
+**The following steps were performed while cleaning the Demographics dataset:**
+
+1. Converted the date type variables into date format.
+2. The observations (corresponding to customer IDs) with First pay date outside the period from Feb 01,2005  to Sep 30, 2005 were removed. 
+3. Country, language and application files are merged with the demographics dataset. 
+4. Checked for missing values in Gender variable and recode the Gender values 1 as Male and 0 as Female.
+5. Calculated the number of days since user registration and first interaction by the user.
+6. Dropped the unnecessary columns for coherency.
+
+**The following steps were performed while cleaning the UserDailyAggregation dataset:**
+
+1. Converted the date type variables into date format
+2. The observations (corresponding to customer IDs) where Transact date is earlier than the First pay date were removed.
+3. Product file is merged with the UserDailyAggregation dataset. 
+3. Date column is renamed for coherency.
+4. Statistical analysis is carried out for further analysis and insights.
+5. NA values are filled with zero.  
+
+**The following steps were performed while cleaning the Pokerchips dataset:**
+
+1. Extracted date,month,day and hour from TransDateTime column which will be used for further analysis. 
+2. The observations (corresponding to customer IDs) where Transact date is earlier than the First pay date were removed.
+3. Recoded the transaction type values - 124 as sell and 24 as buy.
+4. Statistical analysis is carried out for further analysis and insights.
+5. Transactions are classified based on time (hour) of day as morning, evening and night transactions to discover time pattern. 
+6. Renamed the necessary columns for coherency. 
+
+
+***
+### 4. Marketing Metrics:
+
+Marketing is the most important word when it comes to making an online casino a lucrative enterprise. The big M is often split into 2 coherent types of activity: player acquisition (through banner advertising, affiliate marketing, etc.) and player retention (regular bonuses to loyal players, VIP programs, etc.). Pivot Wider function is used to format the table as Wider and per product level. Finally the datamart is constructed by merging the data with unique UserID.
+ 
+#### RFM:\
+\
+**RFM Score** was calculated for each customer to analyse the customer gaming patterns and behaviour.
+
+**Segregation criteria**
+
+a. **Loyalists**           - These are the **CHAMPION** customers who love to often come to BWIN. **BWIN** needs to reward these                                    customers so they remain promoters for BWIN.
+
+
+b. **Potential Loyalists** - These customers spend considerable amount on betting activities, have played more than once and 
+                             are recent customer. **BWIN** needs to incentivize these customers with **attractive offers and                                        discounts**. 
+                             
+c. **Promising**           - These customers have a good transaction / betting history but in decline over the recent times. 
+                             **BWIN** needs to provide **personalized digital marketing** to better engage with these customers.
+                             
+d. **Hesitant**            - These customers are **passive customers** i.e., these customers have below average recency,                                            frequency and monetary values.**BWIN** should try to understand these customers' expectations 
+                             and to emphasize on these to retain them.
+
+e. **Need attention**      - If no suitable action is taken, these customers have a risk of becoming the detractors.**BWIN** 
+                             needs to prevent this by understanding the requirements of these customers and attract them with                                       **tailor made offers/discounts**.
+
+
+f. **Detractors**          - These customers are **disappointed** with BWIN in the past and no longer want to engage. These                                         customers have Lowest recency, frequency and monetary scores. Detractors have a **high probability** 
+                             **to churn** and **BWIN** needs to strategize its actions to retain detractors.
+
+Density plot is used to visualize the distribution of recency, frequency and monetary value. 
+
+#### Gross Gaming Revenue (GGR) / Profitability :\
+\
+**GGR / Profitability** also known as gaming yield or the gross game win, is a true measure of the economic value of gambling. It is used to determine what a casino or other gaming operation earns before taxes, salaries and other expenses are paid. 
+
+Profitability = Total_Stakes - Total_Winnings
+
+#### Customer LOR (Length of Relationship) :\
+\
+**Length of Relationship** variable denotes how long the user has been in active with the organization since the first active date. It's calculated by finding the difference between Last_Active_Date and First_Pay date.   
+
+LOR = Last_Active_Date - FirstPay
+
+#### Customer LTV (Lifetime Value) :\
+\
+**Customer lifetime value** is the revenue a user generates over the course of the entire time they play a game. It’s calculated by taking the profitability divided by the total no of active days by multiplying it with LOR. 
+
+Customer_LTV = (ProfitabilityinEUR) / (Total_Active_Days*LOR)
+
+#### ARPU :\
+\
+**Average Revenue per User** is a measure of the revenue generated by one player per unit time.  
+
+ARPU = Total_Stakes/Total_Active_Days
+
+LTV (together with ARPU) helps to evaluate the total revenue, or value, of a game or user.
+
+#### DepositperBet :\
+\
+**Deposit/Bet ratio** shows you the average deposit per each bet.  
+
+DepositPerBet = Total_Stakes/Total_No_of_Bets
+
+#### Customer Tier :\ 
+\
+Customer Tier was created to understand the spending patterns of the user. The segregation is done based on the quartile distribution based on stake amount as seen below, 
+
+**Gold tier**     - **Top Quartile Customers** - If the Stake Amount is between 805 - 1127196 euros \
+**Silver tier**   - **Median Customers** - If the Stake Amount is between 226 - 805 euros \
+**Bronze tier**   -**Last Quartile Customers** - If the Stake Amount is between 0 - 226 euros \
+
+
+***
+### 5. Summary Statistics and Insights using Shiny:
+
+Shiny Application is developed for user interactivity and the detailed Analysis of users 
+
+### Top Ranking overview
+
+#### Top Country
+
+ * Analysing the Top 10 Countries by most number of Users.
+ 
+ * ***Germany*** has the highest number of users followed by Turkey and Poland .
+
+
+```{r countriesPlot, echo = FALSE, message = FALSE, warning = FALSE ,out.width ='440px',out.height='350px' }
+data_count <- datamart %>% group_by(Country.Name) %>% count(Country.Name) %>% rename(Counts = n) %>% arrange(desc(Counts)) 
+data_count <- data_count[1:10,]
+data_count
+
+country_filtered <- datamart %>% group_by(Country.Name) %>%
+  summarise(nbr_users = n(),
+            country_total_stakes = sum(Total_Stakes_in_EUR),
+            country_total_winnings = sum(Total_Winnings_in_EUR),
+            country_total_bets = sum(Total_No_of_Bets))
+t10countriesnbr <- top_n(country_filtered, 10, nbr_users)
+  t10countriesusers <- ggplot(t10countriesnbr, aes(x=reorder(Country.Name,-nbr_users), y= nbr_users,fill=Country.Name)) +
+  geom_col(size=8) +
+  scale_fill_hue(c = 40) +
+  theme(legend.position="none")+
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line.x = element_line(colour = "black"),
+        axis.ticks.y=element_blank(), axis.text.x=element_text(angle=90,hjust=1,vjust=1),
+        plot.title = element_text(hjust = 0.5))+
+  labs(title = "Top 10 Countries by Number of Users",x = "Countries", y= "Number of Users")
+t10countriesusers
+```
+
+#### Top Application\
+\
+The following visual shows the top 5 Applications by number of users. The most preferred by users is **BETANDWIN.DE** application as compared to others which has over 20,000 users.
+
+```{r ApplicationsPlot, echo = FALSE, message = FALSE, warning = FALSE ,out.width ='350px',out.height='350px' }
+App_filtered <- datamart %>% group_by(Application.Description) %>%
+  summarise(App_total_users = n(),
+            App_total_stakes = sum(Total_Stakes_in_EUR),
+            App_total_winnings = sum(Total_Winnings_in_EUR),
+            App_total_bets = sum(Total_No_of_Bets))
+top5Appsnbr <- top_n(App_filtered, 5, App_total_users)
+top5Appsusers <- ggplot(top5Appsnbr, aes(x=reorder(Application.Description,-App_total_users), y= App_total_users,fill=Application.Description)) + 
+  geom_col( ) +
+  coord_flip() +
+  theme(legend.position="none")+
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line.x = element_line(colour = "black"),
+        axis.ticks.y=element_blank(),
+        plot.title = element_text(hjust = 0.5)) +
+  scale_fill_manual("Teams",values = c('#F0B27A', '#5DADE2','#F9E79F','#E74C3C','#CACFD2'))+
+  labs(title = "Top 5 Applications By Number of Users",x = "Applications", y= "Number of Users")
+top5Appsusers
+```
+
+#### Number of Users by Product\
+\
+The below graph shows the number of users by product. There is a remarkable preference by the product Sports book fixed-odd compared to other products.
+
+```{r Users by Product, echo = FALSE, message = FALSE, warning = FALSE ,out.width ='360px',out.height='360px' }
+prodfav<- datamart %>% count(FavProduct,sort=TRUE)
+prodfav <- prodfav %>% replace_na(list(FavProduct = "Poker"))
+ggplot(prodfav, aes(x=reorder(FavProduct, n),y=n)) + geom_bar(stat='identity',fill = 'dodgerblue3') + theme_bw() + coord_flip() + scale_y_continuous("Nbr Users") + labs(title = "Users by Product",x="") + theme_gray() + geom_text(aes(label=n), position=position_dodge(width=0.9), hjust=-0.05, size=2.5)
+```
+
+#### Customer profiling using language and gender distribution\
+\
+Most of the Users speak German and majority of the users are male.Women are not very representative in BWin's gamblers, since only 8% of customers are women.
+
+```{r CustProfiling2, echo = FALSE, message = FALSE, warning = FALSE ,out.width ='360px',out.height='360px' }
+language <- datamart %>% group_by(Language.Description) %>% 
+  summarise(nbr_speakers = n())
+language <- top_n(language,10,nbr_speakers)
+plot1 <- ggplot(language,
+                aes(x = reorder(Language.Description, -nbr_speakers),y= nbr_speakers, fill = Language.Description))+
+  geom_bar(stat = "Identity") + coord_flip()+ theme(legend.position="none")+ 
+  labs(title  ="Language Distribution of Users", x= "Language",y = "Count")
+plot1
+```
+
+\
+```{r CustProfiling1, echo = FALSE, message = FALSE, warning = FALSE ,out.width ='360px',out.height='360px' }
+gen <- datamart %>% group_by(Gender) %>% 
+  summarise(count = n())
+gen <- na.omit(gen)
+gen
+
+genplot <- ggplot(gen,
+                   aes(x = reorder(Gender, -count),y= count, fill = Gender))+
+  geom_bar(stat = "Identity", width = 0.3) + coord_flip()+ theme(legend.position="none") +
+  labs(title = "User distribution by Gender" , x = "Gender",y = "Number of Users")
+genplot
+```
+
+#### User Map\
+\
+The following graph shows the number of customers in each of the country.
+```{r CountriesMap, echo = FALSE, message = FALSE, warning = FALSE ,out.width ='350px',out.height='350px' }
+
+mapdata <- map_data("world")
+mapdata <- mapdata %>% rename(Country.Name = region)
+mapdata$Country.Name <- as.character(mapdata$Country.Name)
+datamart_country <- datamart %>% group_by(Country.Name) %>%
+  summarise(nbr_users = n(),
+            Totbets = sum(Total_Stakes_in_EUR),
+            totspent = sum(TotalBettingAmt_Games.bwin),
+            totwinning = sum(Total_Winnings_in_EUR))
+country_df <- left_join(datamart_country,mapdata, by = "Country.Name")
+
+country_df <- country_df %>% filter (!is.na(country_df$nbr_users))
+map1 <- ggplot(country_df,aes (x= long , y = lat, group = group )) +
+  geom_polygon(aes (fill= nbr_users),color = "black")  +labs(title = "Countries by Number of  Users", fill = "Number of Users") +
+  theme(plot.title = element_text(hjust = 0.5)) + 
+  theme_void()
+map1
+```
+\
+\
+Europe is the region with the most number of Bets
+
+```{r CountriesMap2, echo = FALSE, message = FALSE, warning = FALSE ,out.width ='360px',out.height='360px' }
+country_df <- country_df %>% filter (!is.na(country_df$Totbets))
+map2 <- ggplot(country_df,aes (x= long , y = lat, group = group)) +
+  geom_polygon(aes (fill= Totbets/1000),color = "black")+
+  scale_fill_viridis_c(option = "plasma",trans = 'sqrt')+labs(title = "Countries by Number of Bets", fill = "Total Bets in Thousands") +
+  theme_void()
+map2
+
+```
+
+#### Top Countries based on Customer LTV\
+\
+The customer who is from **Austria** has the highest Life Time Value. 
+
+```{r Cust_LTVplotPlot, echo = FALSE, message = FALSE, warning = FALSE ,out.width ='440px',out.height='350px' }
+Cust_LTVplot <- datamart %>% group_by(Cust_LTV, Country.Name) %>% summarise(nbr_users = n())  %>% arrange(desc(Cust_LTV))
+t10countriesCust_LTV <- Cust_LTVplot[1:10,]
+t10countriesCust_LTV_plot <- ggplot(t10countriesCust_LTV, aes(x= Country.Name , y=Cust_LTV, fill= Country.Name)) +
+  geom_col( ) +
+  scale_fill_hue(c = 40) +
+  theme(legend.position="none")+
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line.x = element_line(colour = "black"),
+        axis.ticks.y=element_blank(), 
+        plot.title = element_text(hjust = 0.5)) +
+  labs(title = "Top Countries By Customer LTV",x = "Countries", y= "Cust_LTV")
+t10countriesCust_LTV_plot
+```
+
+#### Customer Tier\
+
+```{r CustomertiersPlot, echo = FALSE, message = FALSE, warning = FALSE ,out.width ='350px',out.height='350px' }
+CustomertiersPlot <- datamart %>% group_by(Cust_tier) %>% summarise(tier = n())
+CustomertiersPlot
+
+customer_plot <- ggplot(CustomertiersPlot, aes(x=reorder(Cust_tier,-tier), y= tier,fill=Cust_tier)) + 
+  geom_col( ) +
+  coord_flip() +
+  theme(legend.position="none")+
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line.x = element_line(colour = "black"),
+        axis.ticks.y=element_blank(),
+        plot.title = element_text(hjust = 0.5)) +
+  scale_fill_manual("Teams",values = c('#F0B27A', '#5DADE2','#F9E79F','#E74C3C','#CACFD2'))+
+  labs(title = "Customer tiers based on spending",x = "Customers Tiers", y= "Amount spend (in euros)")
+customer_plot
+```
+
+#### Segment of Customers based on RFM Score\
+\
+```{r RFMPlot, echo = FALSE, message = FALSE, warning = FALSE ,out.width ='350px',out.height='350px' }
+table(datamart$Segment)
+RFMPlot <- ggplot(datamart) + 
+           geom_bar(aes(x = Segment, fill = Segment))+ 
+           theme(legend.position="none")+
+           theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+                 panel.background = element_blank(), axis.line.x = element_line(colour = "black"),
+                 axis.ticks.y=element_blank(),
+                 plot.title = element_text(hjust = 0.5)) +
+           labs(title = "Barplot for Segments of customers")
+RFMPlot
+```
+
+
+### Overall Insights:
+
+ *  There are 42,646 qualified users (Male - 39,043 & Female - 3,587)
+ 
+ *  Germany has the most number of users (24,165), followed by Turkey (2,476) and Poland (2,417)
+ 
+ *  The most preferred by users is **BETANDWIN.DE** application as compared to others which has over 20,000 users  
+ 
+ *  The most played product is **Sports book fixed odd** with high number of users (40,547)
+ 
+ *  Most of the Users speak **German** and majority of the users are **male**. Women are not very representative in BWin’s gamblers,       since only **8% of customers are women**.
+ 
+ *  The customers from **Austria** have the highest Life Time Value (3,000).
+ 
+ *  BWIN needs to focus on customers in **Potential Loyalists, Promising and Need Attention** segments to maximize profits.
+ 
+ *  Majority of the customers belonging to the above mentioned customer segments are from **Germany** and majorly play **Sports book       fixed odd**. 
+ 
+ \newpage
+
+### Variable Description:
+
+The datamart was created by merging 3 differents files: Demographics, UserDailyAggregation and PokerChipConversions. This datamart is a user centric datamart. (i.e., one observation per UserID)
+
+```{r,  echo = FALSE}
+#We print the description of the datamart computed in an excel before
+knitr::kable(Variable_descriptions)
+```
+
+**References**\
+
+1. [Logo Source](https://slotsspot.com/bonus-casino/bwin-casino/)\
+2. [KPI Gambling Source](https://www.softswiss.com/knowledge-base/kpi-online-gaming/)\
+3. [Customer Lifetime Value](https://www.quora.com/Whats-the-average-Customer-Lifetime-Value-of-an-online-casino-client-in-your-country-or-company)\
+4. [Customer Segmentation using RFM Score](#https://medium.com/analytics-vidhya/customer-segmentation-using-rfm-analysis-in-r-cd8ba4e6891)\
+5. R and Shiny Package Documentations
+
+
+
+
+
+
+
