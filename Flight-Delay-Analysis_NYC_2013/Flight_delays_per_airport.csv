@@ -1,7 +1,0 @@
-Engine,Airports_Name,Airports,manufacturer,Percent_of_dep_delayed_flights,Avg_dep_delays
-Big Flights,John F Kennedy Intl,JFK,BOEING,0.38,12
-Big Flights,La Guardia,LGA,EMBRAER,0.34,11
-Big Flights,Newark Liberty Intl,EWR,EMBRAER,0.44,15
-Small Flights,John F Kennedy Intl,JFK,SIKORSKY,0.47,15
-Small Flights,La Guardia,LGA,CESSNA,0.27,7
-Small Flights,Newark Liberty Intl,EWR,CESSNA,0.29,11

@@ -1,0 +1,6 @@
+no_of_seats,Total_flights,Delayed_flights,Perc_delayed_flights
+251-350 Seats,7448,3989,0.54
+51-150 Seats,129201,68019,0.53
+151-250 Seats,117612,60435,0.51
+351-450 Seats,3273,1530,0.47
+2-50 Seats,26636,11791,0.44

@@ -1,0 +1,45 @@
+Engine,Airline,Airports,carrier,manufacturer,Percent_of_dep_delayed_flights,Avg_dep_delays
+Big Flights,AirTran Airways Corporation,LGA,FL,BOEING,0.5,18
+Big Flights,Alaska Airlines Inc.,EWR,AS,BOEING,0.32,6
+Big Flights,American Airlines Inc.,EWR,AA,MCDONNELL DOUGLAS,0.27,11
+Big Flights,American Airlines Inc.,JFK,AA,BOEING,0.36,11
+Big Flights,American Airlines Inc.,LGA,AA,MCDONNELL DOUGLAS,0.26,8
+Big Flights,Delta Air Lines Inc.,EWR,DL,BOEING,0.3,12
+Big Flights,Delta Air Lines Inc.,JFK,DL,BOEING,0.33,8
+Big Flights,Delta Air Lines Inc.,LGA,DL,BOEING,0.3,10
+Big Flights,Endeavor Air Inc.,EWR,9E,BOMBARDIER INC,0.22,6
+Big Flights,Endeavor Air Inc.,JFK,9E,BOMBARDIER INC,0.44,19
+Big Flights,Endeavor Air Inc.,LGA,9E,BOMBARDIER INC,0.3,9
+Big Flights,Envoy Air,JFK,MQ,CANADAIR LTD,0.34,12
+Big Flights,Envoy Air,LGA,MQ,GULFSTREAM AEROSPACE,0.26,7
+Big Flights,ExpressJet Airlines Inc.,EWR,EV,EMBRAER,0.44,20
+Big Flights,ExpressJet Airlines Inc.,JFK,EV,CANADAIR,0.37,19
+Big Flights,ExpressJet Airlines Inc.,LGA,EV,EMBRAER,0.38,19
+Big Flights,Frontier Airlines Inc.,LGA,F9,AIRBUS,0.5,20
+Big Flights,Hawaiian Airlines Inc.,JFK,HA,AIRBUS,0.2,5
+Big Flights,JetBlue Airways,EWR,B6,EMBRAER,0.35,13
+Big Flights,JetBlue Airways,JFK,B6,EMBRAER,0.4,13
+Big Flights,JetBlue Airways,LGA,B6,AIRBUS INDUSTRIE,0.38,15
+Big Flights,Mesa Airlines Inc.,LGA,YV,BOMBARDIER INC,0.39,19
+Big Flights,SkyWest Airlines Inc.,EWR,OO,BOMBARDIER INC,0.5,21
+Big Flights,SkyWest Airlines Inc.,LGA,OO,BOMBARDIER INC,0.23,10
+Big Flights,Southwest Airlines Co.,EWR,WN,BOEING,0.53,18
+Big Flights,Southwest Airlines Co.,LGA,WN,BOEING,0.54,18
+Big Flights,US Airways Inc.,EWR,US,AIRBUS INDUSTRIE,0.23,4
+Big Flights,US Airways Inc.,JFK,US,AIRBUS INDUSTRIE,0.32,6
+Big Flights,US Airways Inc.,LGA,US,EMBRAER,0.23,3
+Big Flights,United Air Lines Inc.,EWR,UA,AIRBUS INDUSTRIE,0.5,13
+Big Flights,United Air Lines Inc.,JFK,UA,BOEING,0.33,8
+Big Flights,United Air Lines Inc.,LGA,UA,BOEING,0.39,12
+Big Flights,Virgin America,EWR,VX,AIRBUS,0.35,12
+Big Flights,Virgin America,JFK,VX,AIRBUS,0.47,13
+Small Flights,AirTran Airways Corporation,LGA,FL,JOHN G HESS,0.33,-3
+Small Flights,American Airlines Inc.,EWR,AA,CESSNA,0.27,13
+Small Flights,American Airlines Inc.,JFK,AA,SIKORSKY,0.48,16
+Small Flights,American Airlines Inc.,LGA,AA,CESSNA,0.23,7
+Small Flights,Envoy Air,EWR,MQ,CESSNA,0.28,8
+Small Flights,Envoy Air,JFK,MQ,CESSNA,0.38,57
+Small Flights,Envoy Air,LGA,MQ,CESSNA,0.26,8
+Small Flights,JetBlue Airways,EWR,B6,ROBINSON HELICOPTER CO,0.34,7
+Small Flights,JetBlue Airways,JFK,B6,BARKER JACK L,0.47,14
+Small Flights,JetBlue Airways,LGA,B6,CIRRUS DESIGN CORP,0.42,9
