@@ -6,8 +6,10 @@ Shiny Dashboard link: https://arunkkumar.shinyapps.io/Datamart_Shiny/
 ![image](https://user-images.githubusercontent.com/115185834/209304686-b122e90c-0e92-48b9-8d1d-c01d3be6c3be.png)
 
 🎉 Help Me Improve
+
 Hello Mr. Reader, if you find any bug or anything else that could add more value in this project then please consider raising it to me I will address them asap.
 
 📫 Feedback
-If you have any feedback, please reach out to me via LinkedIn(https://www.linkedin.com/in/arunkkumar-karthikeyan/)
+
+If you have any feedback, please reach out to me via [LinkedIn](https://www.linkedin.com/in/arunkkumar-karthikeyan/)
 
