@@ -7,3 +7,10 @@ In this project, we first start cleaning data and transforming it in order to be
 ![image](https://user-images.githubusercontent.com/115185834/210104682-6580bdd6-1db3-4158-8c33-e0ec61cca079.png)
 ![image](https://user-images.githubusercontent.com/115185834/210104698-8686e7ba-c3b6-4e38-a7c9-56d6ea8a2dd2.png)
 
+# :tada: Help Me Improve
+
+Hello Mr. Reader, if you find any bug or anything else that could add more value in this project then please consider raising it to me I will address them asap.
+
+# :mailbox_closed: Feedback
+
+If you have any feedback, please reach out to me via [LinkedIn](https://www.linkedin.com/in/arunkkumar-karthikeyan/)
