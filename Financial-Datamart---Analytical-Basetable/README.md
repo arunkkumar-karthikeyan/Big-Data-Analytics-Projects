@@ -11,5 +11,11 @@ This entire project has been done with Python and visualizations has been done u
 ![Screenshot 3](https://user-images.githubusercontent.com/115185834/204761349-77d16181-5ffe-4d95-b7ec-dc3459b6fa25.png)
 ![Screenshot 4](https://user-images.githubusercontent.com/115185834/204761370-0be186d0-e648-4f77-aa3b-c4fcfb5c816f.png)
 
+# :tada: Help Me Improve
 
+Hello Mr. Reader, if you find any bug or anything else that could add more value in this project then please consider raising it to me I will address them asap.
+
+# :mailbox_closed: Feedback
+
+If you have any feedback, please reach out to me via [LinkedIn](https://www.linkedin.com/in/arunkkumar-karthikeyan/)
 
