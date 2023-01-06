@@ -1,5 +1,5 @@
 # Predictive Modeling with Python For Charity Association
-Python Project - The goal of this project is to create a predictive model using data from an association in order to predict who will be most likely to donate at least 30€ on the upcoming marketing campaign. 
+Python Project - The goal of this project is to create a predictive model using data from an association in order to predict who will be most likely to donate on the upcoming marketing campaign. 
 In this project, we first start cleaning data and transforming it in order to be able to use model with it. Logistic Regression, Decision tree, RandomForest, Neural Network and others algorithms are used in this project.
 
 ![image](https://user-images.githubusercontent.com/115185834/210104653-4cea4742-4b74-4a8f-8a7f-ee715ba69d8d.png)
