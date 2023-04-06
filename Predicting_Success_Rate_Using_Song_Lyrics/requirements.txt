@@ -11,7 +11,7 @@ matplotlib
 wordcloud
 plotly
 seaborn
-collections
+counter
 pandas
 contractions
 numpy
