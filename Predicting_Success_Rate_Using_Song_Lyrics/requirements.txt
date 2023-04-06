@@ -8,7 +8,7 @@ textblob
 transformers
 spacy
 matplotlib
-wordcloudd
+wordcloud
 plotly
 seaborn
 collections
