@@ -39,7 +39,6 @@ import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 from collections import Counter
 from textblob import TextBlob
-from numerize import numerize
 from sklearn.svm import SVC
 import plotly.express as px
 from gensim import corpora
