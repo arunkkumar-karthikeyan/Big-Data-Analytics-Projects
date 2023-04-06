@@ -57,7 +57,7 @@ import re
 #==============================================================================
 
 # read the dataset 
-songs = pd.read_csv('../ALL_SONGS_with_lyrics.csv', encoding='iso-8859-1')
+songs = pd.read_csv('Big-Data-Analytics-Projects/Predicting_Success_Rate_Using_Song_Lyrics/ALL_SONGS_with_lyrics.csv', encoding='iso-8859-1')
 top_songs = songs.sort_values(by='popularity', ascending=False).head(20)
 bow_popularity = pd.read_excel('../BOW_per_popularity.xlsx')
 bow_song = pd.read_excel('../BOW_per_song.xlsx')
