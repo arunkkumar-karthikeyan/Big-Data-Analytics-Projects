@@ -15,3 +15,4 @@ counter
 pandas
 contractions
 numpy
+streamlit_option_menu
