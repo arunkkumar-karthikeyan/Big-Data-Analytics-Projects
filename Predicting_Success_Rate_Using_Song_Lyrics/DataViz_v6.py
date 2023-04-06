@@ -57,13 +57,13 @@ import re
 #==============================================================================
 
 # read the dataset 
-songs = pd.read_csv(r"ALL_SONGS_with_lyrics.csv", encoding='iso-8859-1')
+songs = pd.read_csv("ALL_SONGS_with_lyrics.csv", encoding='iso-8859-1')
 top_songs = songs.sort_values(by='popularity', ascending=False).head(20)
-bow_popularity = pd.read_excel(r"BOW_per_popularity.xlsx")
-bow_song = pd.read_excel(r"BOW_per_song.xlsx")
+bow_popularity = pd.read_excel("BOW_per_popularity.xlsx")
+bow_song = pd.read_excel("BOW_per_song.xlsx")
 
 #Reading the data and subsetting those values without lyrics
-data=pd.read_csv(r"lyrics_preprocessed.csv")\
+data=pd.read_csv("lyrics_preprocessed.csv")\
 .drop('Unnamed: 0',axis=1)\
 .dropna(subset='cleaned_lyrics')\
 .drop_duplicates(subset=['song_name'])
@@ -72,10 +72,10 @@ data=pd.read_csv(r"lyrics_preprocessed.csv")\
 df=data[['id','cleaned_lyrics']]
 
 # Reading the dataset for sentiment analysis
-sentiment_songs = pd.read_excel(r"df_pre_modelling.xlsx")
+sentiment_songs = pd.read_excel("df_pre_modelling.xlsx")
 
 # Reading the pre-modelling dataset
-df_pre_modelling = pd.read_excel(r"df_pre_modelling - 01.xlsx")
+df_pre_modelling = pd.read_excel("df_pre_modelling - 01.xlsx")
 
 #==============================================================================
 # HEADER
