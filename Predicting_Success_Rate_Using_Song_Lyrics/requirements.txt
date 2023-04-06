@@ -1,5 +1,5 @@
 readability
-sklearn
+scikit-learn
 nltk
 gensim
 pyLDAvis
