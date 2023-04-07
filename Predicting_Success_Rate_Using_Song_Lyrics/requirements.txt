@@ -17,3 +17,4 @@ contractions
 numpy
 streamlit_option_menu
 py-readability-metrics
+openpyxl
