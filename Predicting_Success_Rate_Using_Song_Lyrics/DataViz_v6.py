@@ -491,7 +491,8 @@ def Song_Information():
     
     # Define a function to recommend songs based on the selected song
     nlp = spacy.load("en_core_web_sm")
-    stop_words = set(stopwords.words('english'))
+    stop_words = nltk.download('stopwords')
+    #stop_words = set(stopwords.words('english'))
     p_stemmer = PorterStemmer()
 
     def preprocess_text(text):
