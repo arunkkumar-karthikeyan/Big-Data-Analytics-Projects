@@ -1097,7 +1097,10 @@ def Pop_Predict():
         df_yl = pd.concat([df_yl, df_topics_yl], axis=1)
 
         #Get the columns to get the prediction
-        df_yl=df_yl[['readability_score','lexical_richness','sentiment_sadness','sentiment_joy','sentiment_love','sentiment_anger','sentiment_fear','sentiment_surprise','sentiment','topic1','topic2','topic3','topic4','topic5','topic6','topic7','topic8','topic9','topic10','topic11','topic12','topic13']]
+        df_yl=df_yl[['readability_score','lexical_richness','sentiment','sentiment_sadness',
+                     'sentiment_joy','sentiment_love','sentiment_anger','sentiment_fear',
+                     'sentiment_surprise','topic1','topic2','topic3','topic4','topic5',
+                     'topic6','topic7','topic8','topic9','topic10','topic11','topic12','topic13']]
 
         #Get only the columns we are interested in
         df_pred=df_pre_modelling.copy()[['readability_score','lexical_richness','sentiment','sentiment_sadness',
