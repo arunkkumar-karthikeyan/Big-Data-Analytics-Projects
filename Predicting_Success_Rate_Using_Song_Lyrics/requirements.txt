@@ -20,3 +20,4 @@ streamlit_option_menu
 py-readability-metrics
 openpyxl
 TensorFlow
+click
